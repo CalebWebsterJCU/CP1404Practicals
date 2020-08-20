@@ -2,6 +2,7 @@
 CP1404/CP5632 - Practical
 Broken program to determine score status
 """
+import random as r
 
 
 def main():
@@ -9,6 +10,10 @@ def main():
     score = get_valid_score(minimum=0, maximum=100)
     category = determine_score_category(score=score)
     print(category)
+    # Generate random score and print category.
+    random_score = r.randint(0, 100)
+    print("Random score: {}".format(random_score))
+    print(determine_score_category(score=random_score))
 
 
 def get_valid_score(minimum: int, maximum: int) -> float:
@@ -36,5 +41,5 @@ def run_tests():
         print("{} - {}".format(x, determine_score_category(x)))
 
 
-run_tests()
-# main()
+# run_tests()
+main()
