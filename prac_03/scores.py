@@ -10,14 +10,15 @@ FILE_NAME = 'results.txt'
 
 def main():
     """Get number of scores, generate random scores, write categories to text file."""
-    number_of_scores = get_positive_integer('Number of scores: ')
+    number_of_scores = get_positive_integer(prompt='Number of scores: ')
     file_out = open(FILE_NAME, 'w')
     for x in range(number_of_scores):
+        # Generate random score, determine category, write both to text file.
         score = r.randint(MINIMUM_SCORE, MAXIMUM_SCORE)
         category = determine_score_category(score)
-        print("{} - {}".format(score, category), file=file_out)
+        print("{0} - {1}".format(score, category), file=file_out)
     file_out.close()
-    print("Wrote {} results to '{}'".format(number_of_scores, FILE_NAME))
+    print("Wrote {0} results to '{1}'".format(number_of_scores, FILE_NAME))
 
 
 def determine_score_category(score: float) -> str:
