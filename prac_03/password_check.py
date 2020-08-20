@@ -24,4 +24,14 @@ def get_password(min_length):
     return password
 
 
-main()
+def run_tests():
+    """Test functions."""
+    print(get_password(10))
+    password = 'a'
+    while len(password) <= 10:
+        print_password_asterisks(password)
+        password += 'a'
+
+
+run_tests()
+# main()
