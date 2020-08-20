@@ -16,7 +16,7 @@ def main():
         # Generate random score, determine category, write both to text file.
         score = r.randint(MINIMUM_SCORE, MAXIMUM_SCORE)
         category = determine_score_category(score)
-        print("{0} - {1}".format(score, category), file=file_out)
+        print("{0} is {1}".format(score, category), file=file_out)
     file_out.close()
     print("Wrote {0} results to '{1}'".format(number_of_scores, FILE_NAME))
 
