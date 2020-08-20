@@ -4,14 +4,17 @@ Broken program to determine score status
 """
 import random as r
 
+MINIMUM_SCORE = 0
+MAXIMUM_SCORE = 100
+
 
 def main():
     """Get score and determine and print category."""
-    score = get_valid_score(minimum=0, maximum=100)
+    score = get_valid_score(minimum=MINIMUM_SCORE, maximum=MAXIMUM_SCORE)
     category = determine_score_category(score=score)
     print(category)
     # Generate random score and print category.
-    random_score = r.randint(0, 100)
+    random_score = r.randint(MINIMUM_SCORE, MAXIMUM_SCORE)
     print("Random score: {}".format(random_score))
     print(determine_score_category(score=random_score))
 
