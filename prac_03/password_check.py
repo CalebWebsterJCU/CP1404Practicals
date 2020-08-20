@@ -8,3 +8,4 @@ while length < 5:
     length = len(password)
 
 print("*" * length)
+
