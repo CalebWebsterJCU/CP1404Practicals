@@ -46,5 +46,5 @@ def run_tests():
         print("{:3}C is {:5.1f}C".format(x, celsius_to_fahrenheit(x)))
 
 
-# main()
-run_tests()
+main()
+# run_tests()

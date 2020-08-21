@@ -33,5 +33,5 @@ def run_tests():
         password += 'a'
 
 
-run_tests()
-# main()
+# run_tests()
+main()
