@@ -1,7 +1,6 @@
 """This program provides interesting information about a set of numbers."""
 
 import statistics
-NUMBER_OF_INPUTS = 5
 
 
 def main():
@@ -10,10 +9,14 @@ def main():
                  'NicolEye', 'swei45', 'BaseInterpreterInterface',
                  'BaseStdIn', 'Command', 'ExecState', 'InteractiveConsole',
                  'InterpreterInterface', 'StartServer', 'bob']
-    numbers = [get_float_greater_than_value("Number: ", 0) for x in range(NUMBER_OF_INPUTS)]
-    # for x in range(NUMBER_OF_INPUTS):
-    #     number = get_float_greater_than_value("Number: ", 0)
-    #     numbers.append(number)
+    numbers = []
+    number_index = 1
+    number = get_float("Number {}: ".format(number_index))
+    while number >= 0:
+        numbers.append(number)
+        number_index += 1
+        number = get_float("Number {}: ".format(number_index))
+
     for number in numbers:
         print(number, end=" ")
     print()
@@ -36,19 +39,16 @@ def display_information(numbers: list):
     print("The median value is {:.2f}".format(statistics.median(numbers)))
 
 
-def get_float_greater_than_value(prompt: str = "Number: ", value: float = 0) -> float:
+def get_float(prompt: str = "Number: ") -> float:
     """Get an integer value that is greater than a specified value."""
     number = 0
     is_valid = False
     while not is_valid:
         try:
             number = float(input(prompt))
-            if number > value:
-                is_valid = True
-            else:
-                print("Number must be > {0}".format(value))
+            is_valid = True
         except ValueError:
-            print("Please enter an integer")
+            print("Please enter a number")
     return number
 
 
