@@ -6,6 +6,10 @@ NUMBER_OF_INPUTS = 5
 
 def main():
     """Get numbers, add them to a list, then display useful information."""
+    usernames = ['jimbo', 'giltson98', 'derekf', 'WhatSup',
+                 'NicolEye', 'swei45', 'BaseInterpreterInterface',
+                 'BaseStdIn', 'Command', 'ExecState', 'InteractiveConsole',
+                 'InterpreterInterface', 'StartServer', 'bob']
     numbers = []
     for x in range(NUMBER_OF_INPUTS):
         number = get_float_greater_than_value("Number: ", 0)
@@ -14,6 +18,11 @@ def main():
         print(number, end=" ")
     print()
     display_information(numbers)
+    username = input("Username: ")
+    if username in usernames:
+        print("Access granted")
+    else:
+        print("Access denied")
 
 
 def display_information(numbers: list):
