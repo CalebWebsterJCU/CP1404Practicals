@@ -10,10 +10,10 @@ def main():
                  'NicolEye', 'swei45', 'BaseInterpreterInterface',
                  'BaseStdIn', 'Command', 'ExecState', 'InteractiveConsole',
                  'InterpreterInterface', 'StartServer', 'bob']
-    numbers = []
-    for x in range(NUMBER_OF_INPUTS):
-        number = get_float_greater_than_value("Number: ", 0)
-        numbers.append(number)
+    numbers = [get_float_greater_than_value("Number: ", 0) for x in range(NUMBER_OF_INPUTS)]
+    # for x in range(NUMBER_OF_INPUTS):
+    #     number = get_float_greater_than_value("Number: ", 0)
+    #     numbers.append(number)
     for number in numbers:
         print(number, end=" ")
     print()
