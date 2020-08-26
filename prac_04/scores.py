@@ -24,10 +24,29 @@ def main():
     scores_file.close()
     for i in range(len(subjects)):
         print(subjects[i], "Scores:")
-        for score in score_values[i]:
-            print(score)
-        print("Max:", max(score_values[i]))
+        total = 0
+        max_score = 0
+        min_score = 100
+        number_of_scores = 0
+        for score in score_values:
+            print(score[i])
+            total += score[i]
+            number_of_scores += 1
+            if score[i] > max_score:
+                max_score = score[i]
+            if score[i] < min_score:
+                min_score = score[i]
+        # for score in score_values[i]:
+        #     print(score)
+        print("Max:", max_score)
+        print("Min:", min_score)
+        print("Total:", total)
+        print("Average:", total / number_of_scores)
         print()
+    file_in = open("scores.csv")
+    contents = file_in.read()
+    file_in.close()
+    print(contents)
 
 
 main()
