@@ -20,7 +20,8 @@ def main():
     for number in numbers:
         print(number, end=" ")
     print()
-    display_information(numbers)
+    if numbers:
+        display_information(numbers)
     username = input("Username: ")
     if username in usernames:
         print("Access granted")
