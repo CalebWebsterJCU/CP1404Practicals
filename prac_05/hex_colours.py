@@ -1,5 +1,7 @@
 """
-Hex Colours - This program shows different colour names and their hexidecimal codes.
+Hex Colours
+31/08/2020
+This program shows different colour names and their hexidecimal codes.
 Data Retrieved from https://www.color-hex.com/color-names.html.
 """
 
