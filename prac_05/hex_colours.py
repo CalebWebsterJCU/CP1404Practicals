@@ -3,7 +3,7 @@ Hex Colours - This program shows different colour names and their hexidecimal co
 Data Retrieved from https://www.color-hex.com/color-names.html.
 """
 
-FILE_NAME = "colour_hex_values.csv"
+FILE_NAME = "colour_hex_values.txt"
 
 name_to_hex = {}
 file_in = open(FILE_NAME, 'r')
