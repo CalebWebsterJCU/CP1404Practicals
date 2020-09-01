@@ -10,5 +10,5 @@ class ProgrammingLanguage:
         """Check if a programming language is dynamic or not."""
         if self.reflection == "Dynamic":
             return True
-        else:
+        elif self.reflection == "Static":
             return False
