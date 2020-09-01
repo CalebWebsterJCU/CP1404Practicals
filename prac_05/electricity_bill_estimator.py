@@ -31,4 +31,5 @@ def get_string_in_dict(valid_strings, prompt: str = "Input: "):
     return string
 
 
-main()
+if __name__ == '__main__':
+    main()
