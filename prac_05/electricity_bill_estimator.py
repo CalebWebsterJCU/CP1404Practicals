@@ -4,7 +4,7 @@ This program estimates total electricity bill
 cost based on details entered by the user.
 """
 
-TARIFF_VALUES = {'11': 0.244618, '31': 0.136928}
+TARIFF_VALUES = {'11': 0.244618, '31': 0.136928, '18': 0.322678, '6': 0.189432, '21': 0.492736}
 
 
 def main():
