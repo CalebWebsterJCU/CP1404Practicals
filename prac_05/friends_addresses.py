@@ -43,7 +43,7 @@ def add_name_address(names_addresses):
 def change_address(names_addresses):
     """Get name and new address and add them to dictionary."""
     print("Enter the name of the person's address that you want to change")
-    name = get_string_in_list(names_addresses, INPUT_PROMPT).title()
+    name = get_string_in_dict(names_addresses, INPUT_PROMPT).title()
     new_address = get_nonempty_string("New address: ").title()
     names_addresses[name] = new_address
     print(f"{name}'s address changed to {new_address}!")
@@ -51,7 +51,7 @@ def change_address(names_addresses):
 
 def display_address(names_addresses):
     """Display address stored in dictionary for a given name."""
-    name = get_string_in_list(names_addresses, "Name: ").title()
+    name = get_string_in_dict(names_addresses, "Name: ").title()
     print(f"{name}'s address is {names_addresses.get(name)}")
 
 
@@ -64,7 +64,7 @@ def get_nonempty_string(prompt="String: ", error="Input cannot be blank"):
     return string
 
 
-def get_string_in_list(valid_strings, prompt: str = "Input: "):
+def get_string_in_dict(valid_strings, prompt: str = "Input: "):
     """Get a string from the user, making sure it is in a specified list."""
     string = input(prompt).title()
     while string not in valid_strings:
