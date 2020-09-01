@@ -10,6 +10,9 @@ class ProgrammingLanguage:
         """Return printing instructions."""
         return f"{self.name}, {self.typing}, typing, Reflection={self.reflection}, First appeared in {self.year}"
 
+    def __repr__(self):
+        return f"{self.name}, {self.typing}, typing, Reflection={self.reflection}, First appeared in {self.year}"
+
     def is_dynamic(self):
         """Check if a programming language is dynamic or not."""
         if self.reflection == "Dynamic":
