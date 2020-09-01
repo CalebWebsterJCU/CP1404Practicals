@@ -12,7 +12,7 @@ def main():
     print("Electricity Bill Estimator 2.0")
     print("Choose from the following tariffs: ")
     for key in TARIFF_VALUES:
-        print(key, end=" ")
+        print(key, end=", ")
     print()
     tariff = get_string_in_dict(TARIFF_VALUES, ">>> ")
     dollars_per_kwh = TARIFF_VALUES.get(tariff)
