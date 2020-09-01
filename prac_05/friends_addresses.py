@@ -10,11 +10,13 @@ C - Change existing address
 D - Display address for name
 Q - Quit"""
 INPUT_PROMPT = ">>> "
+FILE_NAME = 'friends_addresses.txt'
 
 
 def main():
     """Store names: addresses as dict, add, change and display addresses."""
-    names_to_addresses = {}
+    names_to_addresses = read_data_to_dict(FILE_NAME)
+    print(names_to_addresses)
     print("Friends' Addresses by Caleb Webster")
     print(MENU)
     choice = input(INPUT_PROMPT).lower()
@@ -29,7 +31,19 @@ def main():
             print("Invalid menu choice")
         print(MENU)
         choice = input(INPUT_PROMPT).lower()
-    print("Goodbye!")
+    save_dict_to_file(FILE_NAME, names_to_addresses)
+    print(f"{len(names_to_addresses)} addresses saved to {FILE_NAME}")
+
+
+def read_data_to_dict(file_name):
+    """Read data from a file into a dictionary."""
+    the_dict = {}
+    file_in = open(file_name, 'r')
+    for line in file_in:
+        key, value = line.strip().title().split(': ')
+        the_dict[key] = value
+    file_in.close()
+    return the_dict
 
 
 def add_name_address(names_addresses):
@@ -53,6 +67,14 @@ def display_address(names_addresses):
     """Display address stored in dictionary for a given name."""
     name = get_string_in_dict(names_addresses, "Name: ").title()
     print(f"{name}'s address is {names_addresses.get(name)}")
+
+
+def save_dict_to_file(file_name, data):
+    """Write dictionary entries to a file."""
+    file_out = open(file_name, 'w')
+    for entry in data:
+        print(f"{entry}: {data.get(entry)}", file=file_out)
+    file_out.close()
 
 
 def get_nonempty_string(prompt="String: ", error="Input cannot be blank"):
