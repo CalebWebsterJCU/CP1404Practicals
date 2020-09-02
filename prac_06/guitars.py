@@ -41,7 +41,7 @@ def get_positive_integer(prompt: str = "Number: ", error: str = "Invalid input; 
     while not is_valid:
         try:
             number = int(input(prompt))
-            if number > 0:
+            if number >= 0:
                 is_valid = True
             else:
                 print("Number must be > 0")
@@ -57,7 +57,7 @@ def get_positive_float(prompt: str = "Number: ", error: str = "Invalid input; en
     while not is_valid:
         try:
             number = float(input(prompt))
-            if number > 0:
+            if number >= 0:
                 is_valid = True
             else:
                 print("Number must be > 0")
