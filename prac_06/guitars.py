@@ -18,8 +18,9 @@ def main():
     while name != '':
         year = get_positive_integer("Year: ")
         cost = get_positive_float("Cost: ")
-        guitars.append(Guitar(name, year, cost))
-        print(Guitar(name, year, cost), "added.")
+        new_guitar = Guitar(name, year, cost)
+        guitars.append(new_guitar)
+        print(new_guitar, "added.")
         name = input("Name: ").title()
     # guitars.append(Guitar("Mario", 1995, 2400))
     # guitars.append(Guitar("Luigi", 2013, 45))

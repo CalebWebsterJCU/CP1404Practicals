@@ -22,17 +22,7 @@ class Date:
 
     def is_leap_year(self):
         """Determine if a given year is a leap year."""
-        if self.year % 4 == 0:
-            if self.year % 100 == 0:
-                if self.year % 400 == 0:
-                    is_leap = True
-                else:
-                    is_leap = False
-            else:
-                is_leap = True
-        else:
-            is_leap = False
-        return is_leap
+        return self.year % 4 == 0 and self.year % 100 != 0 or self.year % 400 == 0
 
     def add_days(self, number):
         """Add days to date."""

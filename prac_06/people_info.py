@@ -13,8 +13,9 @@ def main():
     while first_name != '':
         last_name = get_nonempty_string("Last name: ").title()
         age = get_positive_integer("Age: ")
-        people.append(Person(first_name, last_name, age))
-        print(f"{Person(first_name, last_name, age)} added.")
+        new_person = Person(first_name, last_name, age)
+        people.append(new_person)
+        print(f"{new_person} added.")
         first_name = input("First Name: ").title()
     # people.append(Person("Caleb", "Webster", 19))
     # people.append(Person("Joel", "Webster", 17))
