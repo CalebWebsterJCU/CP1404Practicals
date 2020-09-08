@@ -1,4 +1,6 @@
 class Guitar:
+    from datetime import datetime
+    CURRENT_YEAR = datetime.now().year
 
     def __init__(self, name="", year=0, cost=0):
         """Initialize Guitar Class."""
@@ -14,17 +16,13 @@ class Guitar:
         """Define rules for lists."""
         return f"{self.name} ({self.year}): ${self.cost}"
 
-    def get_age(self, current_year):
+    def get_age(self, current_year=CURRENT_YEAR):
         """Calculate the age of the guitar."""
         age = current_year - self.year
         return age
 
-    def is_vintage(self, this_year):
-        age = self.get_age(this_year)
-        if age >= 50:
-            return True
-        else:
-            return False
+    def is_vintage(self, current_year=CURRENT_YEAR):
+        return self.get_age(current_year) >= 50
 
 
 if __name__ == '__main__':
@@ -33,5 +31,5 @@ if __name__ == '__main__':
     g1 = Guitar("Awesome guitar", 1970, 16000)
     print(g1)
     print([g1])
-    print(g1.get_age(CURRENT_YEAR))
-    print(g1.is_vintage(CURRENT_YEAR))
+    print(g1.get_age())
+    print(g1.is_vintage())
