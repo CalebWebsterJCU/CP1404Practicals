@@ -17,7 +17,7 @@ class ConvertMilesKm(App):
     def build(self):
         """Build the Kivy app from the kv file."""
         self.root = Builder.load_file("convert_miles_km.kv")
-        Window.size = (400, 300)
+        Window.size = (500, 200)
         # self.km_output = "Yes"
         return self.root
 
