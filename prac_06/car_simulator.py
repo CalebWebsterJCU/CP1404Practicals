@@ -2,6 +2,7 @@
 Car Simulator
 02/09/2020
 This program allows the user to create, drive, and refuel their car. Uses the Car class imported from car.py
+Pre Sick
 """
 
 from prac_06.car import Car
