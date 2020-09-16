@@ -7,16 +7,18 @@ This Kivy Program Converts Miles to Kilometers.
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.core.window import Window
+from kivy.app import StringProperty
 
 
 class ConvertMilesKm(App):
     """ConvertMilesKm is an app that converts miles to km."""
-
+    km_output = StringProperty()
     MILES_TO_KM = 1.60934
 
     def build(self):
         """Build the Kivy app from the kv file."""
         self.root = Builder.load_file("convert_miles_km.kv")
+        self.km_output = 'awwwww yeahhh'
         Window.size = (500, 200)
         # self.km_output = "Yes"
         return self.root
@@ -25,7 +27,7 @@ class ConvertMilesKm(App):
         """Convert miles to km."""
         miles = self.get_valid_miles()
         km = round(miles * self.MILES_TO_KM, 2)
-        self.root.ids.km_output.text = str(km)
+        self.km_output = str(km)
 
     def handle_increment(self, amount):
         """Increment input by a certain amount."""
