@@ -50,7 +50,33 @@ class PeopleList(App):
     def display_person_info(self, instance):
         """Display person's name and age in label."""
         name = instance.id
+        self.root.ids.info_display.color = (0, 0, 0, 1)
         self.person_info = "{}, age {}".format(name, self.names_to_ages.get(name))
+
+    def add_name(self):
+        """Create a button widget with the name and age entered, if they are valid. Also add the person to dictionary and file."""
+        age = 0
+        name_is_valid = False
+        age_is_valid = False
+        name = self.root.ids.name_input.text
+        if name != "":
+            name_is_valid = True
+        try:
+            age = int(self.root.ids.age_input.text)
+            if age >= 0:
+                age_is_valid = True
+        except ValueError:
+            pass
+        if name_is_valid and age_is_valid:
+            self.root.ids.info_display.color = (0, 0, 0, 1)
+            self.person_info = "{}, age {} added!".format(name, age)
+            self.names_to_ages[name] = age
+            file_out = open(FILE_NAME, 'w')
+            print("{}: {}".format(name, age), file=file_out)
+            file_out.close()
+        else:
+            self.root.ids.info_display.color = (1, 0, 0, 1)
+            self.person_info = "Invalid name or age"
 
 
 if __name__ == '__main__':
