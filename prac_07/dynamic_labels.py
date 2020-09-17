@@ -34,4 +34,5 @@ class DynamicLabels(App):
         self.root.ids.name_input.text = ""  # clear all text from name_input box
 
 
-DynamicLabels().run()
+if __name__ == '__main__':
+    DynamicLabels().run()
