@@ -1,0 +1,18 @@
+BoxLayout:
+    orientation: 'vertical'
+    BoxLayout:
+        orientation: 'horizontal'
+        Button:
+            text: "Clear"
+            size_hint_x: 0.2
+            on_press: app.clear_input_output()
+        TextInput:
+            id: score_input
+    BoxLayout:
+        orientation: 'horizontal'
+        Button:
+            text: "Calculate Grade"
+            size_hint_x: 0.2
+            on_press: app.handle_display_grade()
+        Label:
+            id: grade_output
