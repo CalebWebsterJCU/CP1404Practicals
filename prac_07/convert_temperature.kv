@@ -1,18 +1,25 @@
 BoxLayout:
-    orientation: 'horizontal'
+    orientation: 'vertical'
     BoxLayout:
-        orientation: 'vertical'
-        TextInput:
-            id: temp_input
-            multiline: False
-            font_size: 50
-            on_text: app.handle_convert()
-        Label:
-            id: temp_output
-            text: app.temp_output_text
-            multiline: False
-            font_size: 50
-    Button:
-        id: change_mode_button
-        text: app.mode_text
-        on_press: app.change_mode()
+        orientation: 'horizontal'
+	    TextInput:
+	        id: temp_input
+	        multiline: False
+	        font_size: 50
+	        on_text: app.handle_convert()
+	    Button:
+		    id: clear_input_button
+	        text: "Clear"
+	        font_size: 30
+	        size_hint_x: 0.25
+	        on_press: app.clear_input()
+    Label:
+        id: temp_output
+        text: app.temp_output_text
+        multiline: False
+        font_size: 50
+	Button:
+	    id: change_mode_button
+	    text: app.mode_text
+	    font_size: 30
+	    on_press: app.change_mode(), app.handle_convert()
