@@ -8,3 +8,21 @@ BoxLayout:
 		text: app.person_info
 		font_size: 30
 		size_hint_y: 0.2
+	BoxLayout:
+		orientation: 'horizontal'
+		size_hint_y: 0.3
+		TextInput:
+			id: name_input
+			multiline: False
+			text: "Name"
+			font_size: 20
+		TextInput:
+			id: age_input
+			multiline: False
+			text: "Age"
+			font_size: 20
+		Button:
+			id: add_person_button
+			text: "Add Name"
+			font_size: 20
+			on_press: app.add_person()
