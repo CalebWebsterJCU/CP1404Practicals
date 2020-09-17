@@ -35,7 +35,9 @@ class PeopleList(App):
 
     def build(self):
         """Build GUI."""
+        self.title = "People List"
         self.root = Builder.load_file("people_list.kv")
+        self.create_buttons()
         return self.root
 
     def create_buttons(self):
