@@ -10,12 +10,18 @@ from kivy.properties import StringProperty
 from kivy.core.window import Window
 
 
-def determine_grade(score):
-    """Determine grade based on score."""
-    if score >= 50:
-        return "Pass"
-    else:
+def determine_jcu_grade(score):
+    """Determine JCU Grade based on score input."""
+    if score < 50:
         return "Fail"
+    elif score < 64:
+        return "Pass"
+    elif score < 74:
+        return "Credit"
+    elif score < 84:
+        return "Distinction"
+    else:
+        return "High Distinction"
 
 
 class Grade(App):
@@ -27,25 +33,33 @@ class Grade(App):
         self.root = Builder.load_file("grade.kv")
         Window.size = (600, 300)
         self.grade_output_text = "Enter Score"
-        # self.grade_output = "Enter Score"
         return self.root
 
     def handle_display_grade(self):
-        score = self.get_valid_score()
-        grade = determine_grade(score)
-        self.grade_output_text = grade
-        if grade == "Fail":
-            self.root.ids.grade_output.color = (1, 0, 0, 1)
+        """Display grade based on score input."""
+        score, is_valid = self.get_score()
+        if is_valid:
+            grade = determine_jcu_grade(score)
+            self.grade_output_text = grade
+            if grade == "Fail":
+                self.root.ids.grade_output.color = (1, 0, 0, 1)
+            else:
+                self.root.ids.grade_output.color = (0, 1, 0, 1)
         else:
-            self.root.ids.grade_output.color = (0, 1, 0, 1)
+            self.grade_output_text = "Invalid Score"
+            self.root.ids.grade_output.color = (1, 1, 1, 1)
 
-    def get_valid_score(self):
+    def get_score(self):
         """Get score, returning zero if it is invalid."""
+        is_valid = False
+        score = self.root.ids.score_input.text
         try:
-            score = float(self.root.ids.score_input.text)
-            return score
+            score = float(score)
+            if 100 >= score >= 0:
+                is_valid = True
         except ValueError:
-            return 0
+            pass
+        return score, is_valid
 
     def clear_input_output(self):
         """Clear input and output boxes."""
