@@ -37,23 +37,23 @@ class PeopleList(App):
         """Build GUI."""
         self.title = "People List"
         self.root = Builder.load_file("people_list.kv")
-        self.create_buttons()
+        for name in self.names_to_ages:
+            self.create_button(name)
         return self.root
 
-    def create_buttons(self):
-        """Create a button with a name for each entry in dictionary."""
-        for name in self.names_to_ages:
-            button = Button(text=name, id=name)
-            button.bind(on_press=self.display_person_info)
-            self.root.ids.names_box.add_widget(button)
+    def create_button(self, name):
+        """Create a button with a name."""
+        button = Button(text=name, id=name)
+        button.bind(on_press=self.display_person_info)
+        self.root.ids.names_box.add_widget(button)
 
     def display_person_info(self, instance):
         """Display person's name and age in label."""
         name = instance.id
-        self.root.ids.info_display.color = (0, 0, 0, 1)
+        self.root.ids.info_display.color = (1, 1, 1, 1)
         self.person_info = "{}, age {}".format(name, self.names_to_ages.get(name))
 
-    def add_name(self):
+    def add_person(self):
         """Create a button widget with the name and age entered, if they are valid. Also add the person to dictionary and file."""
         age = 0
         name_is_valid = False
@@ -68,10 +68,11 @@ class PeopleList(App):
         except ValueError:
             pass
         if name_is_valid and age_is_valid:
-            self.root.ids.info_display.color = (0, 0, 0, 1)
+            self.create_button(name)
+            self.root.ids.info_display.color = (1, 1, 1, 1)
             self.person_info = "{}, age {} added!".format(name, age)
             self.names_to_ages[name] = age
-            file_out = open(FILE_NAME, 'w')
+            file_out = open(FILE_NAME, 'a')
             print("{}: {}".format(name, age), file=file_out)
             file_out.close()
         else:
