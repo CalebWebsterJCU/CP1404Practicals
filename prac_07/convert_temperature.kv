@@ -6,6 +6,7 @@ BoxLayout:
             id: temp_input
             multiline: False
             font_size: 50
+            on_text: app.handle_convert()
         Label:
             id: temp_output
             text: app.temp_output_text
@@ -14,4 +15,4 @@ BoxLayout:
     Button:
         id: change_mode_button
         text: app.mode_text
-        on_press: app.handle_convert()
+        on_press: app.change_mode()
