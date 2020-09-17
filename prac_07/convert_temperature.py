@@ -15,7 +15,8 @@ F_TO_C_MODE = "f-c"
 
 class ConvertTemperature(App):
     """Create GUI Program."""
-    temp_output = StringProperty
+    temp_output_text = StringProperty
+    mode_text = StringProperty
 
     def __init__(self, **kwargs):
         """Initialize class."""
@@ -31,9 +32,9 @@ class ConvertTemperature(App):
         """Convert fahrenheit to celsius or celsius to fahrenheit, depending on which mode the program is in."""
         temp_to_convert = self.get_valid_temperature()
         if self.mode == F_TO_C_MODE:  # Fahrenheit to celsius
-            temp_output = round((temp_to_convert - 32) * (5 / 9), 4)
+            temp_output = str(round((temp_to_convert - 32) * (5 / 9), 4))
         else:  # celsius to fahrenheit
-            temp_output = round(temp_to_convert * (9 / 5) + 32)
+            temp_output = str(round(temp_to_convert * (9 / 5) + 32))
 
     def get_valid_temperature(self):
         """Get temperature, returning zero if it is invalid."""
@@ -47,10 +48,10 @@ class ConvertTemperature(App):
         """Change program mode (celsius to fahrenheit or fahrenheit to celsius)."""
         if self.mode == F_TO_C_MODE:
             self.mode = C_TO_F_MODE
-            self.root.ids.change_mode_button.text = C_TO_F_MODE
+            mode_text = C_TO_F_MODE
         else:
             self.mode = F_TO_C_MODE
-            self.root.ids.change_mode_button.text = F_TO_C_MODE
+            mode_text = F_TO_C_MODE
 
 
 if __name__ == '__main__':

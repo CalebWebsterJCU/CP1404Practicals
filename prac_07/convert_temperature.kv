@@ -1,0 +1,17 @@
+BoxLayout:
+    orientation: 'horizontal'
+    BoxLayout:
+        orientation: 'vertical'
+        TextInput:
+            id: temp_input
+            multiline: False
+            font_size: 50
+        Label:
+            id: temp_output
+            text: app.temp_output_text
+            multiline: False
+            font_size: 50
+    Button:
+        id: change_mode_button
+        text: app.mode_text
+        on_press: app.handle_convert()
