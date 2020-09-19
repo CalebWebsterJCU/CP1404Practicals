@@ -45,7 +45,7 @@ class BoxLayoutDemo(App):
     def clear_fields(self):
         """Clear input and output fields."""
         self.root.ids.input_name.text = ""
-        self.root.ids.output_label.text = "Enter your name"
+        self.root.ids.output_label.text = ""
 
 
 BoxLayoutDemo().run()
