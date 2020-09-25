@@ -47,7 +47,7 @@ def main():
         print(language)
 
 
-# main()
+main()
 
 
 def using_csv():
@@ -63,7 +63,7 @@ def using_csv():
     in_file.close()
 
 
-# using_csv()
+using_csv()
 
 
 def using_namedtuple():
@@ -82,7 +82,7 @@ def using_namedtuple():
     in_file.close()
 
 
-# using_namedtuple()
+using_namedtuple()
 
 
 def using_csv_namedtuple():
