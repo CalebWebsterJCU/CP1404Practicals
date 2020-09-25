@@ -1,5 +1,5 @@
 """
-Guitars File Reader
+Guitars File Reader Version 2
 25/09/2020
 This file reads information from guitars.csv and displays the guitars inside.
 """

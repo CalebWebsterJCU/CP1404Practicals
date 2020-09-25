@@ -1,7 +1,8 @@
 """
-Guitars File Reader
+My Guitars
 25/09/2020
-This file reads information from guitars.csv and displays the guitars inside.
+This file reads information from guitars.csv and displays the guitars inside,
+then gets new guitars from the user, and adds all the guitars to myguitars.csv.
 """
 
 from prac_06.guitar import Guitar
