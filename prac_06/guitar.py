@@ -16,6 +16,10 @@ class Guitar:
         """Define rules for lists."""
         return f"{self.name} ({self.year}): ${self.cost}"
 
+    def __lt__(self, other):
+        """Define rules for comparing guitars (less than)."""
+        return self.year < other.year
+
     def get_age(self, current_year=CURRENT_YEAR):
         """Calculate the age of the guitar."""
         return current_year - self.year
