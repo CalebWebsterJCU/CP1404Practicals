@@ -13,8 +13,7 @@ def main():
     file_in = open(FILE_NAME, "r")
     for line in file_in:
         parts = line.strip().split(",")
-        parts[1] = int(parts[1])
-        parts[2] = float(parts[2])
+        parts[1], parts[2] = int(parts[1]), float(parts[2])
         guitars.append(tuple(parts))
     file_in.close()
     print(guitars)
