@@ -11,7 +11,7 @@ import random
 class UnreliableCar(Car):
     """Unreliable Car class."""
 
-    def __init__(self, name, fuel, reliability):
+    def __init__(self, name="", fuel=0, reliability=50):
         """Initialize class."""
         super().__init__(name, fuel)
         self.reliability = reliability

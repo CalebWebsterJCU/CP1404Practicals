@@ -11,7 +11,7 @@ class SilverServiceTaxi(Taxi):
     """Represent a Silver Service Taxi class."""
     flagfall = 4.50
 
-    def __init__(self, name, fuel, fanciness):
+    def __init__(self, name="", fuel=0, fanciness=0):
         """Initialize SilverServiceTaxi class."""
         super().__init__(name, fuel)
         self.fanciness = fanciness
