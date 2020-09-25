@@ -7,7 +7,7 @@ This file reads information from guitars.csv and displays the guitars inside.
 from prac_06.guitar import Guitar
 
 INPUT_FILE_NAME = "guitars.csv"
-OUTPUT_FILE_NAME = "my_guitars.csv"
+OUTPUT_FILE_NAME = "myguitars.csv"
 
 
 def main():
