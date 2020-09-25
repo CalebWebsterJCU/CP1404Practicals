@@ -9,4 +9,4 @@ from prac_08.silver_service_taxi import SilverServiceTaxi
 taxi = SilverServiceTaxi("Subaru", 100, 2)
 print(taxi)
 taxi.drive(18)
-print(taxi.get_fare())
+print("{:.2f}".format(taxi.get_fare()))
