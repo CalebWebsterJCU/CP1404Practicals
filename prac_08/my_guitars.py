@@ -33,6 +33,7 @@ def main():
 
     guitars.sort()
     write_guitars(guitars, OUTPUT_FILE_NAME)
+    print("{} guitars written to {}".format(len(guitars), OUTPUT_FILE_NAME))
 
 
 def read_guitars(file_name):
