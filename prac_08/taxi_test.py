@@ -1,3 +1,8 @@
+"""
+Taxi Test
+25/09/2020
+This program tests the Taxi class.
+"""
 from prac_08.taxi import Taxi
 taxi_1 = Taxi("Prius", 100)
 taxi_1.drive(40)
