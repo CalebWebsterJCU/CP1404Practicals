@@ -21,7 +21,7 @@ class GasGuzzler(Car):
 
     def drive(self, distance):
         """Drive the car a given distance, consuming more fuel, based on fuel_usage."""
-        if distance * self.fuel_usage > self.fuel:
+        if distance > self.fuel / self.fuel_usage:
             distance = self.fuel / self.fuel_usage
             self.fuel = 0
         else:
