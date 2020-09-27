@@ -15,7 +15,7 @@ class CrazyTaxi(Taxi):
     welcome_message = "Hey hey, come on over, have some fun with craaaaaazy taxi!!!"
     craziness = 50
     base_cash_per_stunt = 10
-    drivers = ["Axel", "BD Joe", "Gena", "Gus"]
+    drivers = ["Axel", "B.D. Joe", "Gena", "Gus"]
 
     def __init__(self, name, fuel):
         """Initialize CrazyTaxi Class."""
