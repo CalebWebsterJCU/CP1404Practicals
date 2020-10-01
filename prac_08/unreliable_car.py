@@ -16,9 +16,13 @@ class UnreliableCar(Car):
         super().__init__(name, fuel)
         self.reliability = reliability
 
+    def __str__(self):
+        """Define rules for printing class objects."""
+        return super().__str__() + " reliability={}".format(self.reliability)
+
     def drive(self, distance):
         """Drive the unreliable car if it doesn't break down."""
-        distance_driven = 0
         if random.randint(0, 100) < self.reliability:
-            distance_driven = super().drive(distance)
-        return distance_driven
+            return super().drive(distance)
+        else:
+            return 0

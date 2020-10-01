@@ -15,9 +15,12 @@ Q)uit"""
 
 
 def main():
-    """Run simulator program."""
-    taxis = [Taxi("Prius", 100), SilverServiceTaxi("Limo", 100, 2), SilverServiceTaxi("Hummer", 200, 4)]
+    """Run simulator program that allows user to choose
+    and drive taxis and keeps track of their bill."""
+    taxis = [Taxi("Prius", 100), SilverServiceTaxi("Limo", 100, 2),
+             SilverServiceTaxi("Hummer", 200, 4)]
     current_taxi = None
+    total_distance_driven = 0
     total_cost = 0
     print("Lets drive!")
     print(MENU)
@@ -32,13 +35,15 @@ def main():
             if current_taxi is None:
                 print("You need to choose a taxi first!")
             else:
-                cost = drive_taxi(current_taxi)
+                cost, distance_driven = drive_taxi(current_taxi)
                 total_cost += cost
+                total_distance_driven += distance_driven
                 print("Bill to date: ${:.2f}".format(total_cost))
         else:
             print("Invalid choice")
         print(MENU)
         choice = input(">>> ").lower()
+    print("Total distance driven: {}km".format(total_distance_driven))
     print("Total trip cost: ${:.2f}".format(total_cost))
     print("Taxis are now:")
     display_taxis(taxis)
@@ -63,10 +68,10 @@ def drive_taxi(taxi):
     """Drive the current taxi a certain distance, if any are selected."""
     distance = get_positive_float("Drive how far? ", "Invalid distance")
     taxi.start_fare()
-    taxi.drive(distance)
+    distance_driven = taxi.drive(distance)
     cost = taxi.get_fare()
     print("Your {} trip cost you ${:.2f}".format(taxi.name, cost))
-    return cost
+    return cost, distance_driven
 
 
 def get_positive_integer(prompt="Number: ", error="Invalid input"):
