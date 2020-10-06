@@ -14,7 +14,7 @@ def main():
     os.chdir("FilesToSort")
 
     # Get a list of all the filenames
-    filenames = os.listdir('.')
+    filenames = [filename for filename in os.listdir('.') if not os.path.isdir(filename)]
     directories_created = []
     print("Files in {}:".format(os.getcwd()))
     for filename in filenames:
