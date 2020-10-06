@@ -41,7 +41,21 @@ def main():
 
 def get_fixed_filename(filename):
     """Return a 'fixed' version of filename."""
-    new_name = filename.replace(" ", "_").replace(".TXT", ".txt")
+    # new_name = filename.replace(" ", "_").replace(".TXT", ".txt")
+    new_name = ""
+    for index, char in enumerate(filename):
+        if index != 0 and char == ' ':
+            new_name += '_'
+        elif filename[index + 1:] in (".txt", ".TXT"):
+            new_name += (char + ".txt")
+            break
+        # TODO: fix backslash error
+        elif index != r"\"" and index < len(filename) - 1 and filename[index + 1].isupper():
+            new_name += (char + "_")
+        elif index == 0 or index - 1 == ' ':
+            new_name += char.upper()
+        else:
+            new_name += char
     return new_name
 
 
@@ -56,8 +70,8 @@ def demo_walk():
         filenames = [os.path.join(directory_name, filename) for filename in filenames]
         for filename in filenames:
             new_name = get_fixed_filename(filename)
-            # print(filename, new_name)
-            os.rename(filename, new_name)
+            print(filename, new_name)
+            # os.rename(filename, new_name)
 
 
 # main()
