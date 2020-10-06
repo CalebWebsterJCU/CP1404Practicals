@@ -19,14 +19,15 @@ def main():
     filenames = [filename for filename in os.listdir('.') if not os.path.isdir(filename)]
     for filename in filenames:
         extension = return_extension(filename)
-        if extension not in extensions:
-            extensions.append(extension)
-            directory = input("What category would you like to sort {} files into? ".format(extension))
-            extensions_to_directories[extension] = directory
-            try:
-                os.mkdir(directory)
-            except FileExistsError:
-                pass
+        if extension in extensions:
+            continue
+        extensions.append(extension)
+        directory = input("What category would you like to sort {} files into? ".format(extension))
+        extensions_to_directories[extension] = directory
+        try:
+            os.mkdir(directory)
+        except FileExistsError:
+            pass
 
     # print(extensions_to_directories)
 
