@@ -49,8 +49,7 @@ def get_fixed_filename(filename):
         elif filename[index + 1:] in (".txt", ".TXT"):
             new_name += (char + ".txt")
             break
-        # TODO: fix backslash error
-        elif index != r"\"" and index < len(filename) - 1 and filename[index + 1].isupper():
+        elif char not in "\\(" and index < len(filename) - 1 and filename[index + 1].isupper():
             new_name += (char + "_")
         elif index == 0 or index - 1 == ' ':
             new_name += char.upper()
