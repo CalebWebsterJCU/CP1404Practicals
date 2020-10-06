@@ -68,8 +68,8 @@ def demo_walk():
         filenames = [os.path.join(directory_name, filename) for filename in filenames]
         for filename in filenames:
             new_name = get_fixed_filename(filename)
-            print(filename, new_name)
-            # os.rename(filename, new_name)
+            # print(filename, new_name)
+            os.rename(filename, new_name)
 
 
 # main()
