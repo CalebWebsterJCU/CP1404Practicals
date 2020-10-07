@@ -1,6 +1,6 @@
 """
 Sort Files 2
-6/10/2020
+06/10/2020
 This program sorts file types into new/existing directories specified by the user.
 """
 
