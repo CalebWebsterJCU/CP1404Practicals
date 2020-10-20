@@ -1,5 +1,5 @@
 """
-Pyramid Blocks
+Pyramid Blocks 2D
 20/10/2020
 This program tells it will take to build a 2 dimensional pyramid of height (num of rows) specified by the user.
 """
