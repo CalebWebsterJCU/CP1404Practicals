@@ -9,18 +9,21 @@ import wikipedia
 
 def main():
     """While user input is not blank, display wikipedia page summary or possible options if page does not exist."""
-    page = input("Page: ")
-    while page != "":
+    page_input = input("Page: ")
+    while page_input != "":
         try:
-            page_summary = wikipedia.summary(page)
-            print(page_summary)
+            page = wikipedia.page(page_input)
+            title = page.title
+            summary = page.summary
+            url = page.url
+            print(f"{title}\n{summary}\n{url}")
         except wikipedia.exceptions.PageError:
-            print(f"Page \"{page}\" does not exist. Try another query!")
+            print(f"Page \"{page_input}\" does not exist. Try another query!")
         except wikipedia.exceptions.DisambiguationError as e:
-            print(f"Here are some disambiguation pages for {page}:")
+            print(f"Here are some disambiguation pages for {page_input}:")
             for option in e.options:
                 print(option)
-        page = input("\nPage: ")
+        page_input = input("\nPage: ")
     print("Goodbye!")
 
 
