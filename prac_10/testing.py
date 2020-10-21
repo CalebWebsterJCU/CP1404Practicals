@@ -79,11 +79,14 @@ def fix_sentence(sentence=""):
     """
     fixed_sentence = list(sentence)
     try:
+        # Remove any brackets
         if fixed_sentence[0] in "([{\"\'" and fixed_sentence[-1] in ")]}\"\'":
             fixed_sentence.pop(0)
             fixed_sentence.pop(-1)
+        # Capitalize first letter
         if not fixed_sentence[0].isupper():
             fixed_sentence[0] = fixed_sentence[0].upper()
+        # Remove invalid punctuation and add a period
         if not fixed_sentence[-1] in ".?!":
             if fixed_sentence[-1] in ",:;":
                 fixed_sentence.pop(-1)
