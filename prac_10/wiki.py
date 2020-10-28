@@ -19,10 +19,10 @@ def main():
             print(f"{title}\n{summary}\n{url}")
         except wikipedia.exceptions.PageError:
             print(f"Page \"{page_input}\" does not exist. Try another query!")
-        except wikipedia.exceptions.DisambiguationError as e:
+        except wikipedia.exceptions.DisambiguationError:
             print(f"Here are some disambiguation pages for {page_input}:")
-            for option in e.options:
-                print(option)
+            for item in wikipedia.search(page_input):
+                print(item)
         page_input = input("\nPage: ")
     print("Goodbye!")
 
